@@ -1,0 +1,22 @@
+### Obtener suma
+GET http://localhost:4321/api/get-sum
+
+### Obtener resta
+GET http://localhost:4321/api/get-subtraction
+
+### Obtener division
+GET http://localhost:4321/api/get-division
+
+
+### Obtener multiplicacion
+GET http://localhost:4321/api/get-multiply
+
+### Obtener basic operations
+GET http://localhost:4321/api/basic-operations:2
+
+
+
+
+### TEST
+GET http://localhost:4321/api/test
+Content-Type: application/json
