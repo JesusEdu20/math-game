@@ -1,12 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import OperationInterface from '../components/OperationInterface';
+import ChatToAttachVideos from '../components/chatToAttachVideos';
+import EmbeddedPlayer from '../components/embeddedPlayer';
 ---
 
 <Layout title="calculameeta">
 	<main>
 		<OperationInterface client:load></OperationInterface>
-	</main>
+		<ChatToAttachVideos client:only="react"></ChatToAttachVideos>
+		<EmbeddedPlayer client:only="react"></EmbeddedPlayer>
+	</main>   
 </Layout>
 
 <style>
