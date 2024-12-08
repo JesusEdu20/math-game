@@ -6,6 +6,7 @@ const getDivision = () => {
         (accumulator, currentValue) => accumulator / currentValue
     ) 
     const solution = {
+        type: "/",
         numbers,
         result,
     }

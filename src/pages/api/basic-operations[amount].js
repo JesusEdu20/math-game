@@ -4,13 +4,13 @@ import getMultiplication from "../../utils/Math/multiply"
 
 
 
-const OPERATIONS = [ getMultiplication, getSum, getSubtraction ]
+const OPERATIONS = [ /* getMultiplication, */ getSum/* , getSubtraction */ ]
 
 export async function GET({ params }){
     const { amount } = params
     const collectionOfOperations = []
     const amountOfOperations = parseInt(amount.split(":").join(""))
-    console.log(amountOfOperations)
+   
     try {
         OPERATIONS.map(operation => {
             for(let i = 0; i < amountOfOperations; i++){

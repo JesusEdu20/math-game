@@ -14,7 +14,6 @@ export async function GET({ params }){
         )
     }
     catch(err){
-
         console.error(err)
     }
 }

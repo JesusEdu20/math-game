@@ -5,7 +5,7 @@ const getMultiplication = () => {
         (accumulator, currentValue) => accumulator * currentValue
     )
     const solution = {
-        type: "multiply",
+        type: "x",
         numbers, 
         result
     }

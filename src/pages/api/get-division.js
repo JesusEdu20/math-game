@@ -1,4 +1,4 @@
-import getDivision from "../../utils/Math/subtraction"
+import getDivision from "../../utils/Math/division.js"
 
 export const prerender = false
 export async function GET({ params }){

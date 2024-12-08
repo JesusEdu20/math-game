@@ -5,7 +5,7 @@ const getSubtraction = () => {
         (accumulator, currentValue) => accumulator - currentValue
     )
     const solution = {
-        type: "subtraction",
+        type: "-",
         numbers, 
         result
     }

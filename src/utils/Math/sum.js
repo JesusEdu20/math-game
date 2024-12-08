@@ -7,7 +7,7 @@ const getSum = () => {
         (accumulator, currentValue) => accumulator + currentValue
     ) 
     const solution = {
-        type: "sum",
+        type: "+",
         numbers,
         result,
     }
