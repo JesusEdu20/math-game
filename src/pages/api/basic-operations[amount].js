@@ -4,7 +4,7 @@ import getMultiplication from "../../utils/Math/multiply"
 
 
 
-const OPERATIONS = [ /* getMultiplication, */ getSum/* , getSubtraction */ ]
+const OPERATIONS = [ getMultiplication, getSum, getSubtraction ]
 
 export async function GET({ params }){
     const { amount } = params
