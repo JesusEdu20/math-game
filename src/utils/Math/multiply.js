@@ -1,6 +1,6 @@
 import getRandomNumbers from "./getRandomNumber"
 const getMultiplication = () => {
-    const numbers = getRandomNumbers(2, 100)
+    const numbers = getRandomNumbers(2, 10)
     const result = numbers.reduce(
         (accumulator, currentValue) => accumulator * currentValue
     )

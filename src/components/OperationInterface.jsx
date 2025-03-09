@@ -1,23 +1,37 @@
 import { useState, useEffect, useRef } from "react"
-import "./OperationInterface.css"
-function OperationInterface(){
+import { routes } from "../pages/api/RouteCollection";
+import "./OperationInterface.css";
+
+function OperationInterface({}){
     const [ useExercise, setExercise ] = useState(null);
     const [ useIsGenerate, setIsGenerate ] = useState(false);
     const [ useCurrentExercise, setCurrentExercise ] = useState(null);
     const [ useAnswer, setAnswer ] = useState(null);
     const [ useWrongFlag, setWrongFlag ] = useState(false);
+    const [ route, setRoute ] = useState(routes.basicOperation);
     const offsetRef = useRef(0);
+
+
     useEffect(() => {
-        console.log("effect")
+       
         try {
            const getOperations = async () => {
-            const response = await fetch("/api/basic-operations:1")
+            const url = route === routes.basicOperation ? `/api/${route}:1`: `/api/${route}`;
+            
+            const response = await fetch(url)
              if(!response.ok){
                 throw new Error(`Error en la solicitud: ${response.status}`);
              }
+
             const data = await response.json(); // ✅ Convertir a JSON
             setExercise(data)
-            setCurrentExercise(data[0]);
+            if(Array.isArray(data)){
+                setCurrentExercise(data[0]);
+            }
+            else {
+                setCurrentExercise(data)
+            }
+
             offsetRef.current = 0;
             
             setIsGenerate(false)
@@ -29,6 +43,10 @@ function OperationInterface(){
         }
     }, [useIsGenerate])
 
+    const changeRouteHandler = (route)=>{
+        setIsGenerate(true);
+        setRoute(route)
+    }
     const nextExerciseHandler = (e) => {
         const isVerify = verifyAnswer()
         clearAnswerInput(e);
@@ -66,7 +84,6 @@ function OperationInterface(){
         console.log(input);        
     }
     const answerHandler = (e) => {
-        
         const typing = e.target.value
         setAnswer(typing)
     }
@@ -76,6 +93,13 @@ function OperationInterface(){
     return(
         <>
             <div className="operation-interface">
+                <div className="operation-buttons-container">
+                    <button onClick={() => changeRouteHandler(routes.multiply)}>Multiplicacion</button>
+                    <button onClick={() => changeRouteHandler(routes.division)}>Division</button>
+                    <button onClick={() => changeRouteHandler(routes.sum)}>Suma</button>
+                    <button onClick={() => changeRouteHandler(routes.subtraction)}>Resta</button>
+                    <button onClick={() => changeRouteHandler(routes.basicOperation)}>Mix</button>
+                </div>
                 <div className="operation-interface__inputs-container" style={{border:`${useWrongFlag ? "1px solid white" : "none"}`}}>
                     {
                            

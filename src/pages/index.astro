@@ -3,11 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import OperationInterface from '../components/OperationInterface';
 import ChatToAttachVideos from '../components/chatToAttachVideos';
 import EmbeddedPlayer from '../components/embeddedPlayer';
+import { routes } from './api/RouteCollection';
 ---
 
 <Layout title="calculameeta">
 	<main>
 		<div class="operation-interface__container">
+			<aside>
+				
+			</aside>
 			<OperationInterface client:load></OperationInterface>
 		</div>
 	</main>   

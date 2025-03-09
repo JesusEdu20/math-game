@@ -1,7 +1,7 @@
 import getSum from "../../utils/Math/sum"
 
 export const prerender = false
-export async function GET({ params }){
+export async function GET(){
 
     try {
         const exercise = getSum()
